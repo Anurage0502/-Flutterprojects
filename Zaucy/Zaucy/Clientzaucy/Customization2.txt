@@ -1,0 +1,41 @@
+1. Create JPA Entities for New Tables
+Define Size, Topping, and OrderItemTopping entities in Spring Boot.
+Modify OrderItem to include a relationship with Size.
+2. Create Repositories
+Create SizeRepository, ToppingRepository, and OrderItemToppingRepository to interact with the database.
+Modify OrderItemRepository to handle new relationships.
+3. Implement Service Layer
+SizeService: Handles CRUD operations for pizza sizes.
+ToppingService: Handles CRUD operations for toppings.
+OrderItemService:
+Fetches available sizes and toppings.
+Calculates the final price (base price + size price + toppings price).
+Saves the order with selected size and toppings.
+4. Create Controller Endpoints
+Admin Endpoints (For adding new options)
+
+POST /sizes → Add a new pizza size.
+POST /toppings → Add a new topping.
+GET /sizes → Get all available sizes.
+GET /toppings → Get all available toppings.
+Customer Endpoints (For selecting customization)
+
+POST /order-items → Create an order item with selected size and toppings.
+GET /order-items/{id} → Get details of an order item (size, toppings, total price).
+5.Modify Order Processing
+When a customer places an order:
+Calculate final price based on size and toppings.
+Store selected size in order_item.
+Store selected toppings in order_item_topping.
+6 Test with Postman
+Add sample sizes & toppings.
+Place an order with a customized pizza.
+Verify size, toppings, and final price are stored correctly.
+7 Connect to Frontend
+Fetch sizes & toppings in the UI.
+Allow users to select a size & toppings before adding to cart.
+Send the selected customization to the backend when placing an order.
+8 Future Enhancements (Optional)
+✅ Implement dynamic pricing based on selected options.
+✅ Add category-based customization (e.g., Veg, Non-Veg toppings).
+✅ Allow customers to save favorite custom pizzas.
